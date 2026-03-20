@@ -17,4 +17,14 @@
 // Write in English or Thai. Do not skip this step.
 //
 // Your thinking:
-//
+// โจทย์ต้องการแสดงรายการเมนูในหมวด 'Side' พร้อมชื่อและราคา โดยใช้ข้อมูลจาก collection menu_items
+// ข้อมูลที่ต้องใช้คือ name และ price และต้องกรองเฉพาะรายการที่ category เป็น 'Side'
+// เราจะใช้ find() เพื่อดึงข้อมูล และใช้เงื่อนไข category เท่ากับ 'Side' พร้อมเลือกแสดงเฉพาะ field name และ price
+
+// ---------------------------------------------------------------
+// Code
+// ---------------------------------------------------------------
+
+use("chrome-burger-db");
+
+db.menu_items.find({ category: "Side" }, { name: 1, price: 1, _id: 0 });

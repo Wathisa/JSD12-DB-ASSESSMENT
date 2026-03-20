@@ -17,4 +17,13 @@
 -- Write in English or Thai. Do not skip this step.
 --
 -- Your thinking:
---
+-- จากโจทย์ อ่านแล้วเข้าใจว่าต้องการแสดงเมนูที่อยู่ในหมวด Side โดยแสดงเฉพาะชื่อและราคา
+-- ข้อมูลน่าจะอยู่ในตาราง MenuItems เพราะเป็นตารางที่เก็บข้อมูลเมนู
+-- สิ่งที่ต้องทำคือเลือกเฉพาะเมนูที่ category เป็น 'Side' และแสดงเฉพาะ column name กับ price
+-- น่าจะใช้คำสั่ง SELECT และ WHERE ในการเขียน query
+
+
+-- Code
+SELECT name, price
+FROM MenuItems
+WHERE category = 'Side';

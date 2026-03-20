@@ -19,4 +19,19 @@
 // Write in English or Thai. Do not skip this step.
 //
 // Your thinking:
-//
+// โจทย์ต้องการหายอดรวมรายได้ทั้งหมดจากทุก order โดยใช้ข้อมูลจาก collection orders
+// ต้องใช้ $group เพื่อรวมข้อมูลทั้งหมด และใช้ $sum เพื่อรวมค่า total_price
+
+// ---------------------------------------------------------------
+// Code
+// ---------------------------------------------------------------
+
+use("chrome-burger-db");
+db.orders.aggregate([
+  {
+    $group: {
+      _id: null,
+      total_revenue: { $sum: "$total_price" },
+    },
+  },
+]);

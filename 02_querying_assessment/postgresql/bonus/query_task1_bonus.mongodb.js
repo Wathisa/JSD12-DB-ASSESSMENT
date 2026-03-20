@@ -26,5 +26,4 @@
 // ---------------------------------------------------------------
 
 use("chrome-burger-db");
-
 db.menu_items.find({ category: "Side" }, { name: 1, price: 1, _id: 0 });

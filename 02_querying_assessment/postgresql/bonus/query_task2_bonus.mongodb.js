@@ -17,4 +17,13 @@
 // Write in English or Thai. Do not skip this step.
 //
 // Your thinking:
-//
+// โจทย์ต้องการรายชื่อพนักงานที่มี role เป็น 'Cook' โดยใช้ข้อมูลจาก collection staff
+// ข้อมูลที่ต้องใช้คือ first_name และ last_name
+// ใช้ find() เพื่อดึงข้อมูล และใช้เงื่อนไข role เท่ากับ 'Cook' และเลือกแสดงเฉพาะ field first_name และ last_name
+
+// ---------------------------------------------------------------
+// Code
+// ---------------------------------------------------------------
+
+use("chrome-burger-db");
+db.staff.find({ role: "Cook" }, { first_name: 1, last_name: 1, _id: 0 });

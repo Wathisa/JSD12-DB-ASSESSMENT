@@ -18,4 +18,21 @@
 // Write in English or Thai. Do not skip this step.
 //
 // Your thinking:
-//
+// โจทย์ต้องการหายอดรวมรายได้ทั้งหมดจากทุก order โดยใช้ข้อมูลจาก collection orders
+// ข้อมูลที่ต้องใช้คือ total_price ของแต่ละ order และต้องนำมาบวกกันทั้งหมดเพื่อให้ได้ค่าเดียว
+// hint บอกให้เขียน aggregation เราเลยต้องใช้ $group เพื่อรวมข้อมูลทั้งหมด และใช้ $sum เพื่อรวมค่า total_price
+// โดยกำหนด _id เป็น null เพื่อรวมทุก document เข้าด้วยกัน และแสดงผลเป็น field ชื่อ total_revenue ค่ะ
+
+// ---------------------------------------------------------------
+// Code
+// ---------------------------------------------------------------
+
+use("chrome-burger-db");
+db.orders.aggregate([
+  {
+    $group: {
+      _id: null,
+      total_revenue: { $sum: "$total_price" },
+    },
+  },
+]);

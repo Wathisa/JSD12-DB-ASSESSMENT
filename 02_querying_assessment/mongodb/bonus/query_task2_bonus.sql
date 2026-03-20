@@ -18,4 +18,16 @@
 -- Write in English or Thai. Do not skip this step.
 --
 -- Your thinking:
---
+-- โจทย์ต้องการดูรายการ order ของพนักงานชื่อ Jane Doe โดยต้องการเฉพาะ order_date และ total_price
+-- ข้อมูลอยู่ในตาราง Orders และ Staff โดย Orders มี staff_id ที่เชื่อมกับ Staff
+-- จึงต้องใช้ JOIN เพื่อเชื่อมตาราง Orders กับ Staff ผ่าน staff_id
+-- จากนั้นใช้ WHERE เพื่อกรองเฉพาะพนักงานชื่อ Jane Doe และเลือกแสดงเฉพาะ order_date และ total_price
+
+-- ---------------------------------------------------------------
+-- Code
+-- ---------------------------------------------------------------
+
+SELECT o.order_date, o.total_price
+FROM Orders o
+JOIN Staff s ON o.staff_id = s.staff_id
+WHERE s.first_name = 'Jane' AND s.last_name = 'Doe';
